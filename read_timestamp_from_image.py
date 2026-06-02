@@ -18,8 +18,9 @@ source_file = Path(
 
 root.destroy()
 
-timestamp_ms = int(source_file[source_file.stem.rfind("-"):])
+potential_timestamp = str(source_file.stem)[str(source_file.stem).rfind("-") + 1:]
+timestamp_ms = int(potential_timestamp)
 
 dt = datetime.fromtimestamp(timestamp_ms / 1000, UTC)
 
-print("The date/time corresponding to the timestamp in the file name of the image you provided is:", dt)
+print("The UTC date/time corresponding to the timestamp in the file name of the image you provided is:", dt)
